@@ -1,6 +1,7 @@
 # DOKUMENTASI PRAKTIKUM 4 CODEIGNITER SERVER
 
 ## PERSYARATAN
+
 Berikut adalah persyaratan untuk dapat menjalankan codeigniter server, yaitu :
 1. Mmenggunakan PHP 7.2.28 atau lebih tinggi
 2. XAMPP 7.2.28 atau lebih tinggi
@@ -8,11 +9,18 @@ Berikut adalah persyaratan untuk dapat menjalankan codeigniter server, yaitu :
 4. Visual Studio Code atau text editor lainnya
 5. Aplikasi Postman
 
-## INSIALASI YANG DILAKUKAN 
-1.Codeigniter dan library REST server yang diperlukan dapat diunduh di https://github.com/chriskacerguis/codeigniter-restserver      atau di https://github.com/ardisaurus/ci-restserver.
-2. Lakukan download Code Igniter CodeIgniter.
-3. Kemudian ekstrak Code Igniter kedalam folder yang telah dibuat.
-4. Buka folder yang berisi Code Igniter dengan Text Editor anda.
+## INISIALASI YANG DILAKUKAN 
+1.  library REST server dapat diunduh di https://github.com/chriskacerguis/codeigniter-restserver atau di https://github.com    /ardisaurus/ci-restserver.
+
+2.  Lakukan download Code Igniter CodeIgniter.
+
+3.  Kemudian ekstrak Code Igniter kedalam folder yang telah dibuat.
+
+4.  Buka folder yang berisi Code Igniter dengan Text Editor anda.
+
+## PENGERTIAN REST
+
+    REST, singkatan bahasa Inggris dari Representational State Transfer, adalah suatu gaya arsitektur perangkat lunak untuk untuk pendistibusian sistem hipermedia seperti www. Istilah ini diperkenalkan pertama kali pada tahun 2000 pada disertasi doktoral Roy Fielding. Pada arsitektur REST, REST server menyediakan resources (sumber daya/data) dan REST client mengakses dan menampilkan resource tersebut untuk penggunaan selanjutnya.
 
 ## PENGGUNAAN
 Pastikan semua yang dibutuhkan telah disiapkan, kemudian extract Codeigniter dan library REST server yang telah didownload dan pindah ke htdocs pada direktori xampp lalu rename folder Codeigniter dan library REST server menjadi rest_ci atau sesuai keingina anda.
@@ -74,6 +82,7 @@ $db['default'] = array(
 ```
 
 ### 2. Membuat Controller
+
 Buat file php baru di di rest_ci/application/controller dengan nama kontak.php, sebagai berikut :
 ```bash
 <?php
