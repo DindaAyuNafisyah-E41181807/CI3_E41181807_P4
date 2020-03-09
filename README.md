@@ -143,7 +143,7 @@ class Kontak extends REST_Controller {
 }
 ?>
 ```
-### 3. Mencoba Get Post,Update,Delete menggunakan bantuan Postman
+### 3. Mencoba Get Post,Put,Delete menggunakan bantuan aplikasi Postman
  
  1. GET 
     Metode GET menyediakan akses baca pada sumber daya yang disediakan oleh REST API. Sebagai contohnya digunakan untuk membaca data dari tabel telepon pada database kontak. Untuk membaca data dari database dapat dilakukan dengan active record yang telah disediakan Codeigniter. Sebelum membaca data dari database, fungsi GET yang akan dibuat terlebih dahulu memeriksa apakah terdapat property id pada address bar sehingga data yang ditampilkan dapat di seleksi berdasarkan id atau ditampilkan semua.
