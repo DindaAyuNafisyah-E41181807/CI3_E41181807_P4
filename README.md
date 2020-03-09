@@ -1,6 +1,7 @@
 # DOKUMENTASI PRAKTIKUM 4 CODEIGNITER SERVER
 
 ## PERSYARATAN
+
 Berikut adalah persyaratan untuk dapat menjalankan codeigniter server, yaitu :
 1. Mmenggunakan PHP 7.2.28 atau lebih tinggi
 2. XAMPP 7.2.28 atau lebih tinggi
@@ -8,11 +9,18 @@ Berikut adalah persyaratan untuk dapat menjalankan codeigniter server, yaitu :
 4. Visual Studio Code atau text editor lainnya
 5. Aplikasi Postman
 
-## INSIALASI YANG DILAKUKAN 
-1.Codeigniter dan library REST server yang diperlukan dapat diunduh di https://github.com/chriskacerguis/codeigniter-restserver      atau di https://github.com/ardisaurus/ci-restserver.
-2. Lakukan download Code Igniter CodeIgniter.
-3. Kemudian ekstrak Code Igniter kedalam folder yang telah dibuat.
-4. Buka folder yang berisi Code Igniter dengan Text Editor anda.
+## INISIALASI YANG DILAKUKAN 
+1.  library REST server dapat diunduh di https://github.com/chriskacerguis/codeigniter-restserver atau di https://github.com    /ardisaurus/ci-restserver.
+
+2.  Lakukan download Code Igniter CodeIgniter.
+
+3.  Kemudian ekstrak Code Igniter kedalam folder yang telah dibuat.
+
+4.  Buka folder yang berisi Code Igniter dengan Text Editor anda.
+
+## PENGERTIAN REST
+
+   REST, singkatan bahasa Inggris dari Representational State Transfer, adalah suatu gaya arsitektur perangkat lunak untuk untuk pendistibusian sistem hipermedia seperti www. Istilah ini diperkenalkan pertama kali pada tahun 2000 pada disertasi doktoral Roy Fielding. Pada arsitektur REST, REST server menyediakan resources (sumber daya/data) dan REST client mengakses dan menampilkan resource tersebut untuk penggunaan selanjutnya.
 
 ## PENGGUNAAN
 Pastikan semua yang dibutuhkan telah disiapkan, kemudian extract Codeigniter dan library REST server yang telah didownload dan pindah ke htdocs pada direktori xampp lalu rename folder Codeigniter dan library REST server menjadi rest_ci atau sesuai keingina anda.
@@ -74,6 +82,7 @@ $db['default'] = array(
 ```
 
 ### 2. Membuat Controller
+
 Buat file php baru di di rest_ci/application/controller dengan nama kontak.php, sebagai berikut :
 ```bash
 <?php
@@ -90,7 +99,6 @@ class Kontak extends REST_Controller {
         $this->load->database();
     }
 
-    //Menampilkan data kontak
     function index_get() {
         $id = $this->get('id');
         if ($id == '') {
@@ -102,11 +110,49 @@ class Kontak extends REST_Controller {
         $this->response($kontak, 200);
     }
 
-    //Masukan function selanjutnya disini
+    function index_post() {
+        $data = array(
+                    'id'           => $this->post('id'),
+                    'nama'          => $this->post('nama'),
+                    'nomor'    => $this->post('nomor'));
+        $insert = $this->db->insert('telepon', $data);
+        if ($insert) {
+            $this->response($data, 200);
+        } else {
+            $this->response(array('status' => 'fail', 502));
+        }
+    }
+
+    function index_put() {
+        $id = $this->put('id');
+        $data = array(
+                    'id'       => $this->put('id'),
+                    'nama'          => $this->put('nama'),
+                    'nomor'    => $this->put('nomor'));
+        $this->db->where('id', $id);
+        $update = $this->db->update('telepon', $data);
+        if ($update) {
+            $this->response($data, 200);
+        } else {
+            $this->response(array('status' => 'fail', 502));
+        }
+    }
+
+    function index_delete() {
+        $id = $this->delete('id');
+        $this->db->where('id', $id);
+        $delete = $this->db->delete('telepon');
+        if ($delete) {
+            $this->response(array('status' => 'success'), 201);
+        } else {
+            $this->response(array('status' => 'fail', 502));
+        }
+    }
+
 }
 ?>
 ```
-### 3. Mencoba Get Post,Update,Delete menggunakan bantuan Postman
+### 3. Mencoba Get Post,Put,Delete menggunakan bantuan aplikasi Postman
  
  1. GET 
     Metode GET menyediakan akses baca pada sumber daya yang disediakan oleh REST API. Sebagai contohnya digunakan untuk membaca data dari tabel telepon pada database kontak. Untuk membaca data dari database dapat dilakukan dengan active record yang telah disediakan Codeigniter. Sebelum membaca data dari database, fungsi GET yang akan dibuat terlebih dahulu memeriksa apakah terdapat property id pada address bar sehingga data yang ditampilkan dapat di seleksi berdasarkan id atau ditampilkan semua.
