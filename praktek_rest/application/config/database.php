@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+//untuk bisa menghubungkan rest API kita membutuhkan database,
+// setelah kita membuat database barulah kita hubungkan dengan code igniter
 
 /*
 | -------------------------------------------------------------------
@@ -76,9 +78,9 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'root',
+	'username' => 'root',// menambahkan username database untuk menghubungkan database yang kita buat
 	'password' => '',
-	'database' => 'kontak',
+	'database' => 'kontak',// masukkan nama database sesuai database yang kita buat
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

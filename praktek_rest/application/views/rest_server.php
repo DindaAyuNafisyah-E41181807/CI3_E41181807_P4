@@ -1,7 +1,7 @@
 <?php
     defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-
+//Tampilan REST SERVER tests
 <!DOCTYPE html>
 <html lang="en">
 <head>
